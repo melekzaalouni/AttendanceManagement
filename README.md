@@ -50,12 +50,14 @@ AttendanceManagement/
 ## Setup
 
 1. Install SQL Server and create a database named `Attendance Management`.
-2. Update the credentials in `DBConnection.java`:
-   ```java
-   private static final String URL = "jdbc:sqlserver://localhost:1433;databaseName=Attendance Management;...";
-   private static final String USER = "javaUser";
-   private static final String PASSWORD = "***REMOVED***";
+2. Set the database credentials as environment variables (never commit them):
+   ```bash
+   export DB_USER=<your_sql_user>
+   export DB_PASSWORD=<your_password>
+   # optional, defaults to localhost:1433 / "Attendance Management"
+   export DB_URL="jdbc:sqlserver://localhost:1433;databaseName=Attendance Management;encrypt=true;trustServerCertificate=true;"
    ```
+   In NetBeans: *Project Properties → Run → VM Options / Environment* (or set them before launching the IDE).
 3. Add the mssql-jdbc driver to the project libraries.
 4. Open the project in NetBeans and run `Login.java`.
 
